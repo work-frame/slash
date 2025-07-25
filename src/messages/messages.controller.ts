@@ -4,12 +4,8 @@ import { MessagesService } from './messages.services';
 
 @Controller('messages')
 export class MessagesController {
-    messagesService: MessagesService
-    constructor() {
-        // Dont do this on real app
-        //USE Dependency Injection
-        this.messagesService = new MessagesService();
-    }
+     constructor(public messagesService: MessagesService ) {}
+       
     @Get()
     listMessages() {
         return this.messagesService.findAll();  
